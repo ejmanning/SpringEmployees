@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employees - New/Edit</title>
+</head>
+<body>
+<form th:object= "${newEmployee}" th:action= "@{/update/{id}(id=${newEmployee.id})}" method= 'POST'>
+Name: <input name= "name" size="20" th:field="*{name}"> <br />
+Job Title: <input name= "jobTitle" size= "10" th:field="*{jobTitle}"><br />
+Monthly Salary: <input name="monthlySalary" size="20" th:field="*{monthlySalary}"><br />
+Age: <input name="age" size="20" th:field="*{age}"><br />
+Team ID: <input name="team.teamId" size="20" th:field="*{team.teamId}"><br />
+Team Name: <input name="team.teamName" size="20" th:field="*{team.teamName}"><br />
+Current Projects:<input name="team.currentProjects" size="20" th:field="*{team.currentProjects}"><br />
+<input name="submit" type="submit" value="submit" />
+</form>
+<a href = "/viewAll">View All Employees</a>
+</body>
+</html>

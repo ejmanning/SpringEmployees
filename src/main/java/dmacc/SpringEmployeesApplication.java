@@ -9,14 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import dmacc.beans.Address;
 import dmacc.beans.Employee;
+import dmacc.beans.Team;
 import dmacc.controller.BeanConfiguration;
 import dmacc.repository.EmployeeRepository;
 //import dmacc.repository.EmployeeRepository;
 
 @SpringBootApplication
-public class SpringEmployeesApplication implements CommandLineRunner {
+public class SpringEmployeesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringEmployeesApplication.class, args);
@@ -25,7 +25,6 @@ public class SpringEmployeesApplication implements CommandLineRunner {
 		@Autowired
 		EmployeeRepository repo;
 		
-		@Override
 		public void run(String... args) throws Exception {
 			// TODO Auto-generated method stub
 			ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
@@ -37,8 +36,8 @@ public class SpringEmployeesApplication implements CommandLineRunner {
 			
 			//Create a bean to use - not managed by Spring
 			Employee d = new Employee("Sandra Boyton", "Project Manager", 3500, 37);
-			Address a = new Address("987 Elm Court", "Altoona", "IA");
-			d.setAddress(a);
+			Team t = new Team("Go-Getters", "UPS");
+			d.setTeam(t);
 			repo.save(d);
 			
 			List<Employee> allEmployees = repo.findAll();

@@ -17,7 +17,7 @@ public class Employee {
 	private int monthlySalary;
 	private int age;
 	@Autowired
-	private Address address;
+	private Team team;
 	
 	public Employee() {
 		super();
@@ -87,18 +87,18 @@ public class Employee {
 		this.age = age;
 	}
 
-	public Address getAddress() {
-		return address;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", jobTitle=" + jobTitle + ", monthlySalary=" + monthlySalary
-				+ ", age=" + age + ", address=" + address + "]";
+				+ ", age=" + age + ", team=" + team + "]";
 	}
 
 	
